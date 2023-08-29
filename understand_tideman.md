@@ -1,2 +1,2 @@
-# Humble Attempt of a Noob to Understand the Mighty Tideman
+# Understanding the Mighty Tideman </br> <sub> A Noob's Humble Attempt</sub>
 
