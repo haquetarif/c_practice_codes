@@ -47,7 +47,7 @@ int candidate_count; /// Actual number of candidate
 bool vote(int rank, string name, int ranks[]); /// takes an integer rank, string name, and array of integers ranks[]
 void record_preferences(int ranks[]);          /// recods preferences in the ranks[] array
 void add_pairs(void);                          /// no idea
-void sort_pairs(void);                         /// sort the pairs
+void sort_pairs(void);                           /// sort the pairs
 void lock_pairs(void);                         /// lock the pairs
 void print_winner(void);                       /// print winners
 bool cycle(int end, int start);                /// Checks cycle in lock
@@ -68,7 +68,7 @@ int main(int argc, string argv[])
         printf("Maximum number of candidates is %i\n", MAX);
         return 2;
     }
-    for (int i = 0; i < candidate_count; i++)
+    for (int i  = 0; i < candidate_count; i++)
     {
         candidates[i] = argv[i + 1]; /// Storing the names of the candidates
     }
@@ -123,7 +123,8 @@ bool vote(int rank, string name, int ranks[])
     {
         if (strcmp(candidates[i], name) == 0)
         {
-            ranks[rank] = i;
+            ranks[rank] = i; /* ranks[0] = 3; if candidates[3] = "Bob";
+            Then the voter ranks Bob in the first position */
             return true;
         }
     }
@@ -140,6 +141,13 @@ void record_preferences(int ranks[])
         for (int j = i + 1; j < candidate_count; j++)
         {
             preferences[ranks[i]][ranks[j]]++;
+
+            /*
+            Update preferences of j over i
+
+            Adds it every time a voter expressed
+            s/he prefers such
+            */
         }
     }
 
