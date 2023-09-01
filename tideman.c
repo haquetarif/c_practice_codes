@@ -51,6 +51,8 @@ void sort_pairs(void);                           /// sort the pairs
 void lock_pairs(void);                         /// lock the pairs
 void print_winner(void);                       /// print winners
 bool cycle(int end, int start);                /// Checks cycle in lock
+void print_preferences(void); // Function to print the preferences matrix
+void print_locked(void);      // Function to print the locked matrix
 
 int main(int argc, string argv[])
 {
@@ -111,6 +113,12 @@ int main(int argc, string argv[])
     add_pairs();
     sort_pairs();
     lock_pairs();
+
+    print_preferences();
+    print_locked();
+
+    printf("\n");
+
     print_winner();
     return 0;
 }
@@ -269,4 +277,34 @@ void print_winner(void)
         }
     }
     return;
+}
+
+// Function to print the preferences matrix
+void print_preferences(void)
+{
+    printf("Preferences Matrix:\n");
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            printf("%2d ", preferences[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+// Function to print the locked matrix
+void print_locked(void)
+{
+    printf("Locked Matrix:\n");
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            printf("%s ", locked[i][j] ? "True" : "False");
+        }
+        printf("\n");
+    }
+    printf("\n");
 }
