@@ -112,9 +112,12 @@ int main(int argc, string argv[])
 
     add_pairs();
     sort_pairs();
+    printf("Locked Before: \n");
+    print_locked();
     lock_pairs();
 
     print_preferences();
+    printf("Locked After: \n");
     print_locked();
 
     printf("\n");
